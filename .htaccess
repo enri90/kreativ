@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# DEV ENVIRONMENT #
+RewriteRule ^$ Symfony/web/app_dev.php [QSA]
+RewriteRule ^(.*)$ Symfony/web/app_dev.php/$1 [QSA,L]
+
+# PROD ENVIRONMENT #
+#RewriteRule ^$ Symfony/web/app.php [QSA]
+#RewriteRule ^(.*)$ Symfony/web/app.php/$1 [QSA,L]
+ 
+</IfModule>
